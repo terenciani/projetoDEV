@@ -5,6 +5,7 @@
  */
 package br.estacio.calculadora.service;
 
+import br.estacio.calculadora.dao.DaoUsuario;
 import br.estacio.calculadora.model.Usuario;
 
 /**
@@ -12,7 +13,15 @@ import br.estacio.calculadora.model.Usuario;
  * @author aluno
  */
 public class ServiceUsuario {
-    public boolean verficaUsuario(Usuario usuario){
-        return true;
+    public String verficaUsuario(Usuario usuario){
+        DaoUsuario daoUsuario = new DaoUsuario();
+        
+        Usuario usuBanco = daoUsuario.buscarUsuarioPorLogin(usuario);
+        if(usuBanco == null)
+            return "Usuário não encontrado";
+        else if (usuBanco.getSenha()==usuario.getSenha())
+            return "index";
+        else
+            return "Senha Inválida";
     }
 }

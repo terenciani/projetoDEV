@@ -18,11 +18,8 @@ public class LoginController {
         
         ServiceUsuario servico = new ServiceUsuario();
         
-        boolean validado = servico.verficaUsuario(usuario);
+       return servico.verficaUsuario(usuario);
         
-        if (validado)
-            return "Vai pro INDEX";
-        else
-            return "Vai pro LOGIN";
+        
     }
 }

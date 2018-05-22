@@ -11,15 +11,19 @@ import br.estacio.calculadora.controller.LoginController;
  *
  * @author aluno
  */
+// Equivalente a visão - view
 public class TesteLogin {
     //Simula um HTML de visão do usuario
     public static void main(String[] args) {
-        String login="";
-        String senha="";
+        String login="admin";
+        String senha="admin";
         
         LoginController controlador = new LoginController();
         
-        controlador.logar(login,senha);
+        String mensagem = controlador.logar(login,senha);
+        
+        System.out.println(mensagem);
+        
     }
     
 }
