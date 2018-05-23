@@ -13,8 +13,17 @@ import br.estacio.calculadora.model.Usuario;
  */
 public class DaoUsuario {
     
+    private static DaoUsuario daoUsuario = null;
     private Usuario usuarioBanco = new Usuario("admin", "admin");
     
+    private DaoUsuario(){}
+    
+    public static DaoUsuario getDaoUsuario(){
+        if(daoUsuario==null)
+            return new DaoUsuario();
+        
+        return daoUsuario;
+    }
     public Usuario buscarUsuarioPorLogin(Usuario usuario){
         //buscar o usuario no banco
         // e retornar para a aplicação.

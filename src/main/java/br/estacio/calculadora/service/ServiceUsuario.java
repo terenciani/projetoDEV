@@ -14,7 +14,7 @@ import br.estacio.calculadora.model.Usuario;
  */
 public class ServiceUsuario {
     public String verficaUsuario(Usuario usuario){
-        DaoUsuario daoUsuario = new DaoUsuario();
+        DaoUsuario daoUsuario = DaoUsuario.getDaoUsuario();
         
         Usuario usuBanco = daoUsuario.buscarUsuarioPorLogin(usuario);
         if(usuBanco == null)
