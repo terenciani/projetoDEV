@@ -5,6 +5,7 @@
  */
 package br.estacio.calculadora.selenium;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -26,17 +27,19 @@ public class TestaLoginFacebook {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\aluno\\Documents\\NetBeansProjects\\projetoDEV\\webdriver\\chromedriver.exe");
 
         driver = new ChromeDriver();
-        driver.get("https://www.devmedia.com.br/login/login.asp?topo=login");
+        driver.get("https://gitlab.com/users/sign_in");
     }
 
     @Test
     public void testeLoginInexistente() {
-        WebElement input = driver.findElement(By.name("usuario"));
+        WebElement input = driver.findElement(By.name("user[login]"));
         input.sendKeys("12345");
         
         
-        input = driver.findElement(By.name("senha"));
+        input = driver.findElement(By.name("user[password]"));
         input.sendKeys("12345");
         
+        driver.findElement(By.name("commit")).click();
+        Assert.assertEquals("Sign in · GitLab", driver.getTitle());
     }
 }
