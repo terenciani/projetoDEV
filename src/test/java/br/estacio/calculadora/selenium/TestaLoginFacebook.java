@@ -23,6 +23,7 @@ public class TestaLoginFacebook {
 
     @BeforeClass
     public static void configuracao() {
+        //https://github.com/mozilla/geckodriver/releases - FIREFOX
         //https://chromedriver.storage.googleapis.com/index.html?path=2.38/
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\aluno\\Documents\\NetBeansProjects\\projetoDEV\\webdriver\\chromedriver.exe");
 
